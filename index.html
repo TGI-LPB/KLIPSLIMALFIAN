@@ -915,10 +915,13 @@
     <div id="admin-section" style="display: none; margin-bottom: 28px;">
       <h3 style="margin-bottom: 14px; font-size: 17px; font-weight:800;">Menu Admin</h3>
       <div class="menu-grid" style="grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:0;">
-          <div class="glass menu-card" onclick="openApprovalMenu()" style="border: 1px solid rgba(52, 199, 89, 0.3); background: rgba(52, 199, 89, 0.05); padding: 20px 16px;">
+          
+          <div class="glass menu-card" onclick="openApprovalMenu()" style="position:relative; border: 1px solid rgba(52, 199, 89, 0.3); background: rgba(52, 199, 89, 0.05); padding: 20px 16px;">
+            <div id="appr-alert-badge" style="position: absolute; top: -8px; right: -8px; background: var(--danger); color: white; font-size: 13px; font-weight: 900; width: 28px; height: 28px; border-radius: 50%; display: none; align-items: center; justify-content: center; border: 3px solid white; box-shadow: 0 4px 10px rgba(255,59,48,0.4); z-index: 10;">0</div>
             <div style="font-size: 32px; margin-bottom:8px;">📋</div>
             <div style="font-weight: 800; font-size: 15px; color: var(--success);">Approval</div>
           </div>
+          
           <div class="glass menu-card" onclick="openLogMenu()" id="log-menu-card" style="border: 1px solid rgba(0, 122, 255, 0.3); background: rgba(0, 122, 255, 0.05); padding: 20px 16px;">
             <div style="font-size: 32px; margin-bottom:8px;">🔐</div>
             <div style="font-weight: 800; font-size: 15px; color: var(--primary);">System Log</div>
@@ -954,9 +957,13 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
       </button>
       <h2 style="font-size: 22px; margin: 0; font-weight:800;">Approval Center</h2>
-      <div style="width: 48px;"></div> 
+      <div style="display:flex; gap:10px;">
+        <button id="btn-sync-appr" onclick="openApprovalMenu()" class="btn-ios-nav" type="button" style="color:var(--success); background:rgba(52,199,89,0.1); border-color:rgba(52,199,89,0.2);" title="Refresh Approval">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"></path><path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path><path d="M3 22v-6h6"></path><path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path></svg>
+        </button>
+      </div> 
     </div>
-
+    
     <div class="filter-tabs">
        <button class="tab-btn active" id="tab-appr-pending" onclick="filterApproval('Pending Approval')">Pending</button>
        <button class="tab-btn" id="tab-appr-approved" onclick="filterApproval('Approved')">Disetujui</button>
@@ -1113,7 +1120,11 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
       </button>
       <h2 style="margin:0; font-size: 22px; font-weight:800;">History Data</h2>
-      <div style="width:48px;"></div>
+      <div style="display:flex; gap:10px;">
+        <button id="btn-sync-hist" onclick="openHistoryMenu()" class="btn-ios-nav" type="button" style="color:var(--primary); background:rgba(0,122,255,0.1); border-color:rgba(0,122,255,0.2);" title="Refresh History">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"></path><path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path><path d="M3 22v-6h6"></path><path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path></svg>
+        </button>
+      </div>
     </div>
     
     <div class="glass" style="padding:16px; margin-bottom:24px; display:flex; gap:12px; align-items:center;">
@@ -1134,10 +1145,15 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
       </button>
       <h2 style="margin:0; font-size: 22px; font-weight:800;">Log Aktivitas</h2>
-      <div style="width:48px;"></div>
+      <div style="display:flex; gap:10px;">
+        <button id="btn-sync-log" onclick="openLogMenu()" class="btn-ios-nav" type="button" style="color:var(--primary); background:rgba(0,122,255,0.1); border-color:rgba(0,122,255,0.2);" title="Refresh Logs">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"></path><path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path><path d="M3 22v-6h6"></path><path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path></svg>
+        </button>
+      </div>
     </div>
     
     <div class="glass" style="padding: 24px;">
+     
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
          <p style="font-size:14px; color:var(--text-muted); font-weight:600; margin:0;">Aktivitas Keamanan Sistem.</p>
          <select id="log-sort" class="custom-input" style="width:auto; padding:8px 16px; margin:0;" onchange="renderLogs()">
@@ -1157,7 +1173,10 @@
       <div class="glass modal-content" style="max-height: 85vh; display:flex; flex-direction:column; padding: 24px;">
          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
              <h3 style="margin:0; font-weight:800; font-size:20px;">🕵️‍♂️ Monitoring Staff</h3>
-             <span style="background:var(--warning); color:white; padding:4px 12px; border-radius:12px; font-weight:800; font-size:12px;" id="monitor-modal-count">0 Staff</span>
+             <div style="display:flex; align-items:center; gap:8px;">
+                 <span style="background:var(--warning); color:white; padding:4px 12px; border-radius:12px; font-weight:800; font-size:12px;" id="monitor-modal-count">0 Staff</span>
+                 <button id="btn-sync-mon" onclick="openStaffMonitorModal()" style="background:rgba(255,149,0,0.1); color:var(--warning); border:1px solid rgba(255,149,0,0.2); width:32px; height:32px; border-radius:10px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition: 0.3s;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 2v6h-6"></path><path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path><path d="M3 22v-6h6"></path><path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path></svg></button>
+             </div>
          </div>
          <input type="text" id="monitor-search" class="custom-input" placeholder="Cari nama / username..." onkeyup="renderStaffMonitorModal()" style="margin-bottom: 16px; padding: 14px; font-size: 14px;">
          
@@ -1182,7 +1201,7 @@
 
 <script>
 // 🔴 Creator By Alfian A. GANTI LINK DI BAWAH INI DENGAN URL DEPLOY APPS SCRIPT-MU (YANG BERAKHIRAN /exec)
-  const API_URL = "https://script.google.com/macros/s/AKfycbwuGmFUwAuuKgdthoBAYpU4dF2Vb7BWXNHeKuayXt-2HSwXtpVGHIwbHuMy7tdHKfCJFw/exec";
+  const API_URL = "https://script.google.com/macros/s/AKfycbzzLtyGgoZ16dUWuVe_wppYJwvxLWlAPfxCFGSO5JQD6Qvy7oYGaEWRpEcdOuNn0hQ9Rg/exec";
 
   // ==========================================
   // LOGIC TOMBOL INSTALL PWA
@@ -1375,12 +1394,12 @@ function setDefaultDates() {
       document.getElementById('dash-end').value = localToday.toISOString().split('T')[0];
   }
 
-  async function callAPI(action, payload = {}, quiet = false) {
-    // Auto-inject Map Link ke field IP agar masuk otomatis ke Log Backend
-    if (payload.ip && !payload.ip.includes("maps.google.com")) {
+async function callAPI(action, payload = {}, quiet = false) {
+    // 🌟 PERBAIKAN: Auto-inject Map Link dengan deteksi batas yang benar
+    if (payload.ip && !payload.ip.includes("|")) {
         payload.ip = payload.ip + " | " + clientMapLinkRaw;
     }
-    if (payload.ipAddress && !payload.ipAddress.includes("maps.google.com")) {
+    if (payload.ipAddress && !payload.ipAddress.includes("|")) {
         payload.ipAddress = payload.ipAddress + " | " + clientMapLinkRaw;
     }
 
@@ -2079,10 +2098,21 @@ else if(type === 'confirm-not-found' && payload) {
       btn.style.background = payload.status === 'Approved' ? 'var(--success)' : 'var(--danger)'; 
       btn.innerText = 'Simpan & ' + actName;
     }
+
+// 👇 TAMBAHKAN KODE INI DI SINI 👇
+    else if(type === 'confirm-unblock' && payload) {
+      title.innerText = 'Buka Blokir Akun?'; 
+      desc.innerHTML = `Yakin ingin mereset rate limit (buka blokir) untuk staf <b style="color:var(--text-main);">@${payload.targetUsername}</b>?`; 
+      icon.innerText = '🔓';
+      btn.style.background = 'var(--danger)'; 
+      btn.innerText = 'Ya, Buka Blokir';
+    }
+    // 👆 SAMPAI SINI 👆
     
     btn.onclick = executeUnivModal; modal.classList.add('active');
   }
 
+  
 function closeActionModal() { 
     document.getElementById('action-modal').classList.remove('active'); 
     // Tambahkan 'confirm-not-found' agar scanner mereset isScanning menjadi true setelah modal ditutup
@@ -2097,6 +2127,13 @@ function closeActionModal() {
 }
 
   function executeUnivModal() {
+    // 👇 TAMBAHKAN KODE INI DI SINI 👇
+    if(activeActionType === 'confirm-unblock') {
+        closeActionModal();
+        executeUnblockRateLimit(activeDataPayload.targetUsername);
+        return;
+    }
+    // 👆 SAMPAI SINI 👆
     if(activeActionType === 'confirm-approval') {
         let note = document.getElementById('admin-appr-note').value.trim();
         if(!note) return showToast('Catatan Admin wajib diisi!', 'error');
@@ -2126,6 +2163,23 @@ function closeActionModal() {
         closeActionModal(); executeBulkReject(note);
     }
 }
+
+// 👇 TARUH FUNGSI BARUNYA TEPAT DI BAWAH SINI 👇
+ async function executeUnblockRateLimit(targetUsername) {
+      showToast(`Membuka blokir untuk @${targetUsername}...`, 'warning');
+      // 🌟 PERBAIKAN: Tambahkan pengiriman IP agar Maps terlacak
+      let res = await callAPI("resetRateLimit", { targetUsername: targetUsername, ip: clientIP });
+      
+      if (res && res.success) {
+          showToast(`✅ Blokir @${targetUsername} berhasil dibuka!`, 'success');
+          document.getElementById('staff-detail-modal').classList.remove('active');
+          openStaffMonitorModal(); // Refresh list otomatis
+      } else {
+          showToast(res ? res.message : 'Koneksi bermasalah', 'error');
+      }
+  }
+  // 👆 SAMPAI SINI 👆
+  
  async function executeApproval(row, status, note) {
     showToast('Memproses...', 'success');
     
@@ -2370,7 +2424,6 @@ async function openHelpMenu() {
             .hc-row-title { font-weight: 800; font-size: 15px; color: var(--text-main); margin-bottom: 6px; display:flex; align-items:center; gap:8px;}
             .hc-row-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; font-weight: 500; margin-bottom: 12px; }
             
-            /* CSS UNTUK MINIATUR UI APLIKASI (MOCKUP) */
             .mockup-container { background: #F2F2F7; border: 1px solid rgba(0,0,0,0.08); border-radius: 16px; padding: 12px; width: 100%; box-shadow: inset 0 2px 10px rgba(0,0,0,0.02); pointer-events:none; user-select:none;}
             .mockup-input { background: white; border: 1px solid rgba(0,0,0,0.05); border-radius: 10px; padding: 8px 12px; font-size: 11px; font-weight: 600; color: #8E8E93; margin-bottom: 8px; display:flex; justify-content:space-between; }
             .mockup-img-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
@@ -2379,7 +2432,6 @@ async function openHelpMenu() {
         </style>
     `;
 
-    // --- TOMBOL INSTALL ---
     let installButtonHtml = '';
     if (deferredPrompt) {
         installButtonHtml = `
@@ -2395,38 +2447,38 @@ async function openHelpMenu() {
         `;
     }
 
-    // --- 1. KEUNGGULAN APLIKASI (SEBAGAI NILAI JUAL / SELLING POINT) ---
+    // --- 1. KEUNGGULAN APLIKASI ---
     let keunggulanHtml = `
         <div class="hc-card" style="border: 1px solid rgba(0, 122, 255, 0.2); background: linear-gradient(180deg, #ffffff 0%, #f4f9ff 100%);">
             <div class="hc-header">
                 <div class="hc-icon" style="background: var(--primary); color: white; box-shadow: 0 4px 15px rgba(0, 122, 255, 0.4);">🚀</div>
-                <div class="hc-title" style="color: var(--primary);">Keunggulan & Nilai Jual RePack</div>
+                <div class="hc-title" style="color: var(--primary);">Keunggulan Sistem RePack</div>
             </div>
             <div class="hc-row">
                 <div class="hc-row-icon" style="color: #FF9500; background: rgba(255, 149, 0, 0.1);">⚡</div>
                 <div>
                     <div class="hc-row-title">Zero Data Loss (Offline-First)</div>
-                    <div class="hc-row-desc">Dirancang untuk area logistik *blank spot* (seperti gudang basemen). Staf dapat bekerja 100% normal tanpa internet. Data dikelola oleh <b style="color:var(--text-main);">Smart Background Sync</b> begitu sinyal stabil.</div>
+                    <div class="hc-row-desc">Aplikasi kebal terhadap area <i>blank spot</i>. Anda bisa bekerja normal tanpa sinyal, dan data akan diunggah otomatis (Smart Background Sync) saat internet kembali stabil.</div>
+                </div>
+            </div>
+            <div class="hc-row">
+                <div class="hc-row-icon" style="color: #AF52DE; background: rgba(175, 82, 222, 0.1);">⏱️</div>
+                <div>
+                    <div class="hc-row-title">10-Minute Grace Period (Auto-Approve)</div>
+                    <div class="hc-row-desc">Salah ketik atau salah foto? Lakukan pengajuan Edit/Hapus dalam batas waktu 10 menit, dan sistem akan <b>menyetujuinya secara otomatis</b> tanpa perlu menunggu Admin.</div>
                 </div>
             </div>
             <div class="hc-row">
                 <div class="hc-row-icon" style="color: #34C759; background: rgba(52, 199, 89, 0.1);">📍</div>
                 <div>
                     <div class="hc-row-title">Enterprise Geotagging Watermark</div>
-                    <div class="hc-row-desc">Tidak sekadar foto. Sistem menyematkan <b>Segel Digital Transparan</b> berisi Koordinat GPS akurat, Alamat Asli, Waktu Server, & ID Staf yang sah secara operasional.</div>
-                </div>
-            </div>
-            <div class="hc-row">
-                <div class="hc-row-icon" style="color: #AF52DE; background: rgba(175, 82, 222, 0.1);">🏎️</div>
-                <div>
-                    <div class="hc-row-title">Industrial Multi-Scan Engine</div>
-                    <div class="hc-row-desc">Teknologi pemindai yang mengadaptasi mesin kasir supermarket. Mampu menembak puluhan *barcode/QR Code* resi secara beruntun <b>tanpa jeda *loading*</b> dengan filter anti-duplikat bawaan.</div>
+                    <div class="hc-row-desc">Foto tidak bisa dipalsukan. Sistem menyematkan Koordinat GPS Akurat, Waktu Server, dan ID Staff yang sah ke dalam setiap foto secara otomatis.</div>
                 </div>
             </div>
         </div>
     `;
 
-    // --- 2. KEAMANAN & PRIVASI (SEBAGAI NILAI JUAL / SELLING POINT) ---
+    // --- 2. KEAMANAN & PRIVASI ---
     let keamananHtml = `
         <div class="hc-card" style="border: 1px solid rgba(52, 199, 89, 0.2); background: linear-gradient(180deg, #ffffff 0%, #f2fbf4 100%);">
             <div class="hc-header">
@@ -2434,30 +2486,30 @@ async function openHelpMenu() {
                 <div class="hc-title" style="color: var(--success);">Keamanan Kelas Enterprise</div>
             </div>
             <div class="hc-row">
-                <div class="hc-row-icon" style="color: var(--primary);">🔒</div>
+                <div class="hc-row-icon" style="color: var(--danger);">🚨</div>
                 <div>
-                    <div class="hc-row-title">Anti-Fraud Digital Signature</div>
-                    <div class="hc-row-desc">Kanvas tanda tangan kurir dilengkapi <b>Auto-Lock System</b> (Gembok Otomatis). Mencegah manipulasi atau coretan tidak sengaja setelah serah terima barang selesai.</div>
+                    <div class="hc-row-title">Brute-Force Protection</div>
+                    <div class="hc-row-desc">Sistem dilengkapi perlindungan ganda (Dynamic Salt Hash). Salah memasukkan password 6 kali akan memicu hitungan mundur <b>(Live Timer)</b> dan mengunci akun secara otomatis.</div>
                 </div>
             </div>
             <div class="hc-row">
-                <div class="hc-row-icon" style="color: var(--danger);">🚨</div>
+                <div class="hc-row-icon" style="color: var(--primary);">👁️‍🗨️</div>
                 <div>
                     <div class="hc-row-title">Customer Privacy Shield</div>
-                    <div class="hc-row-desc">Nomor HP pelanggan disensor berlapis (***). Staf yang memaksa membuka sensor nomor tersebut akan memicu <b>Real-time Security Alert</b> ke dalam Log Administrator.</div>
+                    <div class="hc-row-desc">Nomor HP pelanggan disensor berlapis secara terenkripsi (Misal: 62812****89). Tindakan memaksa membuka sensor nomor akan memicu peringatan <b>Real-time Alert</b> ke panel Admin.</div>
                 </div>
             </div>
             <div class="hc-row">
                 <div class="hc-row-icon" style="color: #FF9500; background: rgba(255, 149, 0, 0.1);">🌍</div>
                 <div>
                     <div class="hc-row-title">Advanced Location & IP Audit</div>
-                    <div class="hc-row-desc">Dilengkapi pelacak anomali. Jika staf login di lokasi mencurigakan (IP Ganda) atau mencoba mematikan GPS untuk memanipulasi lokasi, sistem langsung menandainya di panel Radar Admin.</div>
+                    <div class="hc-row-desc">Aktivitas mencurigakan (seperti login dari IP Ganda atau memanipulasi GPS HP) akan langsung terdeteksi oleh Radar Admin.</div>
                 </div>
             </div>
         </div>
     `;
 
-    // --- 3. PANDUAN OPERASIONAL STAF (DENGAN MOCKUP UI) ---
+    // --- 3. PANDUAN OPERASIONAL STAF ---
     let operasionalHtml = `
         <div class="hc-card" style="background: #F8F8F9; border: 1px solid rgba(0,0,0,0.06);">
             <div class="hc-header">
@@ -2467,7 +2519,7 @@ async function openHelpMenu() {
             
             <div class="hc-row">
                 <div class="hc-row-title"><span style="background:var(--primary); color:white; width:22px; height:22px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-size:11px;">1</span> Alur Pengemasan (Packing)</div>
-                <div class="hc-row-desc">Pindai resi barang, lalu ambil 3 foto wajib secara berurutan: <b>Barang Sebelum Dipacking</b>, <b>Proses Lakban/Bungkus</b>, dan <b>Barang Siap Kirim (After)</b>.</div>
+                <div class="hc-row-desc">Gunakan fitur <b>Industrial Multi-Scan</b> untuk menembak barcode. Wajib melampirkan 3 foto berurutan: <b>Before</b>, <b>Packing</b>, dan <b>After</b>.</div>
                 
                 <div class="mockup-container">
                     <div class="mockup-input"><span style="color:#1C1C1E; font-weight:800;">DO-20260304-001</span> <span>🔍</span></div>
@@ -2482,55 +2534,43 @@ async function openHelpMenu() {
 
             <div class="hc-row" style="margin-top: 12px;">
                 <div class="hc-row-title"><span style="background:var(--success); color:white; width:22px; height:22px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-size:11px;">2</span> Alur Penyerahan Kurir (Receipt)</div>
-                <div class="hc-row-desc">Gunakan fitur <b>Multi-Scan</b> jika menyerahkan banyak resi ke satu kurir yang sama. Ambil foto wajah kurir beserta paketnya, lalu minta kurir mencoret <b>Tanda Tangan Digital</b>.</div>
+                <div class="hc-row-desc">Scan beberapa resi sekaligus jika kurir sama. Ambil foto kurir bersama paket, lalu minta kurir mencoret <b>Auto-Lock Signature</b> (Tanda Tangan Digital).</div>
                 
                 <div class="mockup-container">
                     <div class="mockup-input"><span style="color:#1C1C1E; font-weight:800;">3 Resi Terpilih</span> <span style="color:var(--success);">+ Tambah</span></div>
-                    <div class="mockup-input"><span style="color:#1C1C1E; font-weight:800;">🚚 J&T Express - Budi (B 1234 CD)</span></div>
+                    <div class="mockup-input"><span style="color:#1C1C1E; font-weight:800;">🚚 J&T Express - Budi</span></div>
                     <div style="display:grid; grid-template-columns: 1fr 2fr; gap:6px;">
                         <div class="mockup-img-box" style="height:60px;"><span style="font-size:16px;">📸</span> Foto Kurir</div>
-                        <div class="mockup-img-box" style="height:60px; background:white; border:1px solid rgba(0,0,0,0.1); border-style:solid;"><span style="font-size:16px; color:#000;">✍️</span> Tanda Tangan</div>
+                        <div class="mockup-img-box" style="height:60px; background:white; border:1px solid rgba(0,0,0,0.1); border-style:solid;"><span style="font-size:16px; color:#000;">🔒</span> Tanda Tangan</div>
                     </div>
                     <div class="mockup-btn" style="background:var(--success);">Simpan Receipt</div>
                 </div>
             </div>
 
             <div class="hc-row" style="margin-top: 12px; border-top: 1px dashed rgba(0,0,0,0.08); padding-top: 16px;">
-                <div class="hc-row-title"><span style="background:var(--warning); color:white; width:22px; height:22px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-size:11px;">3</span> Mengajukan Revisi (History)</div>
-                <div class="hc-row-desc">Jika Anda salah ketik atau salah foto, buka menu History, klik datanya, lalu pilih opsi <b>Edit, Hapus, atau Retur</b>. Pengajuan akan diproses Admin.</div>
-                
-                <div class="mockup-container" style="background:white; display:flex; gap:12px; align-items:center; border: 1px solid rgba(0,0,0,0.05); box-shadow:0 4px 12px rgba(0,0,0,0.03);">
-                    <img src="https://ui-avatars.com/api/?name=Alfian+Ananda&background=007AFF&color=fff&bold=true" style="width:40px; height:40px; border-radius:50%; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-                    <div style="flex:1;">
-                        <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
-                            <span style="font-weight:800; font-size:12px; color:#1C1C1E;">DO-20260304-001</span>
-                            <span style="background:rgba(255,149,0,0.15); color:var(--warning); font-size:9px; font-weight:800; padding:2px 6px; border-radius:6px;">⏳ PENG. EDIT</span>
-                        </div>
-                        <div style="font-size:10px; font-weight:700; color:#8E8E93;">Alfian Ananda (Admin) • 10:45 WIB</div>
-                    </div>
-                </div>
+                <div class="hc-row-title"><span style="background:var(--warning); color:white; width:22px; height:22px; display:flex; align-items:center; justify-content:center; border-radius:6px; font-size:11px;">3</span> Mengajukan Revisi Data</div>
+                <div class="hc-row-desc">Buka menu History, klik data yang salah, pilih Edit/Hapus/Retur. <br><b style="color:var(--primary);">Penting:</b> Lakukan dalam kurun waktu < 10 Menit agar disetujui otomatis oleh sistem tanpa campur tangan Admin.</div>
             </div>
-
         </div>
     `;
 
-    // --- 4. KEPATUHAN SISTEM & SOP (DO'S & DON'TS) ---
+    // --- 4. SOP DO'S & DON'TS ---
     let doDontHtml = `
         <div class="hc-card">
             <div class="hc-header">
                 <div class="hc-icon" style="background: rgba(255, 149, 0, 0.1); color: var(--warning);">⚖️</div>
-                <div class="hc-title">SOP Packing, Receipt & Sistem</div>
+                <div class="hc-title">SOP Integritas & Kepatuhan</div>
             </div>
             
             <div style="background: rgba(52, 199, 89, 0.05); border: 1px solid rgba(52, 199, 89, 0.2); border-radius: 16px; padding: 16px; margin-bottom: 12px;">
                 <div style="font-weight:800; font-size:13px; color:var(--success); margin-bottom:12px; display:flex; align-items:center; gap:8px;">
                     <div style="background:var(--success); color:white; width:22px; height:22px; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:12px;">✓</div> 
-                    YANG WAJIB DILAKUKAN
+                    WAJIB DILAKUKAN
                 </div>
                 <ul style="font-size:12.5px; color:var(--text-main); line-height:1.6; padding-left:24px; margin:0; display:flex; flex-direction:column; gap:8px;">
-                    <li><b>SOP Packing:</b> Gunakan <i>Bubble Wrap</i> untuk barang rentan. Pastikan lakban tersegel rapat di semua sisi kemasan sebelum foto "After".</li>
-                    <li><b>SOP Receipt (Penyerahan):</b> Pastikan jumlah & fisik paket cocok dengan resi di aplikasi. Wajib memfoto wajah kurir bersama paket/resi dengan jelas.</li>
-                    <li><b>Integritas Lokasi & Data:</b> Selalu izinkan akses GPS agar Watermark sah sebagai bukti. Rutin klik tombol 🔄 Sync untuk mengirim Draft tertunda.</li>
+                    <li><b>Proses Packing:</b> Gunakan <i>Bubble Wrap</i>. Pastikan lakban segel utuh sebelum memfoto kolom "After".</li>
+                    <li><b>Integritas Lokasi:</b> Selalu berikan izin Akses GPS pada perangkat agar Watermark foto bernilai sah sebagai bukti audit.</li>
+                    <li><b>Sinkronisasi:</b> Jika bekerja di <i>blank spot</i>, selalu rutin klik icon 🔄 Sync ketika sudah mendapatkan sinyal internet yang stabil.</li>
                 </ul>
             </div>
 
@@ -2540,9 +2580,9 @@ async function openHelpMenu() {
                     PELANGGARAN KERAS
                 </div>
                 <ul style="font-size:12.5px; color:var(--text-main); line-height:1.6; padding-left:24px; margin:0; display:flex; flex-direction:column; gap:8px;">
-                    <li><b>Memalsukan Foto & TTD:</b> Dilarang memfoto layar HP/PC lain. <b style="color:var(--danger);">Dilarang keras mencoret TTD sendiri</b>; kurir Ekspedisi WAJIB tanda tangan langsung.</li>
-                    <li><b>Privasi Pelanggan:</b> Dilarang menyalahgunakan kontak pelanggan. Membuka sensor No. HP akan mengirimkan peringatan (Alert) otomatis ke Admin.</li>
-                    <li><b>Hapus Cache & Bagi Akun:</b> Dilarang <i>Clear Cache</i> saat Offline (data akan hangus). Jangan berbagi kredensial akun, sistem melacak IP Address ganda.</li>
+                    <li><b>Memalsukan TTD:</b> Dilarang keras mencoret TTD sendiri. Kurir yang mengambil barang WAJIB melakukan tanda tangan secara langsung.</li>
+                    <li><b>Privasi Pelanggan:</b> Menggunakan kontak pelanggan untuk kepentingan pribadi akan terekam oleh Sistem Log secara otomatis.</li>
+                    <li><b>Hapus Cache:</b> Dilarang melakukan <i>Clear Cache Browser</i> saat aplikasi sedang berstatus Offline (Draft yang belum terkirim akan hangus).</li>
                 </ul>
             </div>
         </div>
@@ -2557,19 +2597,19 @@ async function openHelpMenu() {
         <div class="hc-card" style="background: rgba(255, 149, 0, 0.03); border: 1px solid rgba(255, 149, 0, 0.3);">
             <div class="hc-header">
                 <div class="hc-icon" style="background: rgba(255, 149, 0, 0.15); color: var(--warning);">👑</div>
-                <div class="hc-title" style="color: var(--warning);">Panduan Administrator Khusus</div>
+                <div class="hc-title" style="color: var(--warning);">Panduan Administrator</div>
             </div>
             <div class="hc-row" style="margin-bottom: 16px;">
-                <div class="hc-row-title" style="color:var(--success);"><span style="font-size:18px;">📋</span> Pusat Persetujuan (Approval)</div>
-                <div class="hc-row-desc">Tinjau pengajuan staf. Anda bisa membalas alasan mereka melalui fitur catatan. Gunakan <i>Checklist</i> untuk melakukan "Bulk Approve" secara massal.</div>
+                <div class="hc-row-title" style="color:var(--success);"><span style="font-size:18px;">📋</span> Approval Center</div>
+                <div class="hc-row-desc">Gunakan tombol <b>"Pilih Semua"</b> untuk menyetujui pengajuan secara massal. Data yang disetujui otomatis (<10 Menit) akan ditandai dengan label "Auto-Approved" di Tab Disetujui.</div>
             </div>
             <div class="hc-row" style="margin-bottom: 16px;">
-                <div class="hc-row-title" style="color:var(--primary);"><span style="font-size:18px;">🔐</span> System Log (Audit Keamanan)</div>
-                <div class="hc-row-desc">Pantau percobaan login gagal, perubahan profil otomatis <i>(Auto-Save)</i>, dan deteksi peringatan <b>"Melihat No HP"</b> dari pelanggan.</div>
+                <div class="hc-row-title" style="color:var(--warning);"><span style="font-size:18px;">🕵️‍♂️</span> Smart Live Monitoring</div>
+                <div class="hc-row-desc">Daftar staf kini otomatis terurut berdasarkan <b style="color:var(--text-main);">Waktu Aktif Terakhir</b>. Staf yang terkena sanksi blokir (Suspend) akan berstatus merah, dan Anda dapat melakukan <b>"Bypass Buka Blokir"</b> dengan menekan profil mereka.</div>
             </div>
             <div class="hc-row" style="margin-bottom: 0;">
-                <div class="hc-row-title" style="color:var(--warning);"><span style="font-size:18px;">🕵️‍♂️</span> Smart Live Monitoring</div>
-                <div class="hc-row-desc">Radar real-time Staf. Anda bisa melacak keberadaan Staf melalui tombol <b>🌐 Lacak IP</b> dan <b>📍 Buka Maps</b> di setiap detail riwayat mereka.</div>
+                <div class="hc-row-title" style="color:var(--primary);"><span style="font-size:18px;">🔐</span> Security System Log</div>
+                <div class="hc-row-desc">Pantau notifikasi peringatan seperti <i>Update Foto Profil Baru</i>, percobaan retas (<i>Brute-force</i>), dan klik pembukaan sensor No. HP pelanggan. Semua tercatat beserta lokasi koordinatnya.</div>
             </div>
         </div>
         `;
@@ -2633,6 +2673,9 @@ function buildChatHistory(data) {
     let html = '';
     let hasData = false;
     
+    // 🤖 Robot Icon Base64 (Modern UI Style)
+    // Ikon ini dibuat dengan latar belakang putih elegan, garis outline halus, dan emoji robot modern 🤖
+    const sysAvaUrl = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjUwIiBmaWxsPSIjRjJGMkY3IiBzdHJva2U9IiNFMUUxRTYiIHN0cm9rZS13aWR0aD0iNCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTYlIiBmb250LXNpemU9IjU4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj7wn6W2PC90ZXh0Pjwvc3ZnPg==";
     // 1. Coba baca data riwayat JSON berantai
     if (data.reqHistory && data.reqHistory !== '-') {
         try {
@@ -2641,12 +2684,24 @@ function buildChatHistory(data) {
                 hasData = true;
                 arr.forEach(c => {
                     let isAdm = c.sender === 'admin';
-                    let ava = c.pic ? fixDriveUrl(c.pic) : `https://ui-avatars.com/api/?name=${encodeURIComponent(c.name)}&background=${isAdm?'007AFF':'fff'}&color=${isAdm?'fff':'000'}&bold=true`;
+                    let isSystem = c.name === 'Sistem Auto'; 
+                    
+                    let ava = '';
+                    if (isSystem) {
+                        ava = sysAvaUrl;
+                    } else {
+                        ava = c.pic ? fixDriveUrl(c.pic) : `https://ui-avatars.com/api/?name=${encodeURIComponent(c.name)}&background=${isAdm?'007AFF':'fff'}&color=${isAdm?'fff':'000'}&bold=true`;
+                    }
+
+                    // Tambahkan style khusus untuk pesan dari "Sistem Auto" (Desain UI AI/Robot Modern)
+                    let extraStyle = isSystem ? 'background: linear-gradient(135deg, #5E5CE6 0%, #3B38A8 100%); box-shadow: 0 4px 15px rgba(94, 92, 230, 0.3); border:none; color:white;' : '';
+                    let metaStyle = isSystem ? 'color: rgba(255,255,255,0.9); font-style: italic;' : '';
+
                     html += `
                     <div class="chat-row ${isAdm ? 'admin' : 'staff'}">
-                       <img src="${ava}" class="chat-ava" onclick="openImageViewer('${ava}')" style="cursor:zoom-in;" title="Zoom Profil">
-                       <div class="chat-bubble ${isAdm ? 'admin' : 'staff'}">
-                           <span class="chat-meta">${c.name} • ${c.time || ''}</span>
+                       <img src="${ava}" class="chat-ava" onclick="openImageViewer('${ava}')" style="cursor:zoom-in; ${isSystem ? 'border: 2px solid #5E5CE6; box-shadow: 0 4px 12px rgba(94, 92, 230, 0.25); background: white;' : ''}" title="Zoom Profil">
+                       <div class="chat-bubble ${isAdm ? 'admin' : 'staff'}" style="${extraStyle}">
+                           <span class="chat-meta" style="${metaStyle}">${isSystem ? '⚡ ' : ''}${c.name} • ${c.time || ''}</span>
                            ${c.text}
                        </div>
                     </div>`;
@@ -2673,12 +2728,17 @@ function buildChatHistory(data) {
         if (data.adminNote && data.adminNote !== '-' && data.adminNote.trim() !== '') {
             hasData = true;
             let approverName = data.approverName || 'Admin';
-            let aAva = data.approverPic ? fixDriveUrl(data.approverPic) : `https://ui-avatars.com/api/?name=${encodeURIComponent(approverName)}&background=007AFF&color=fff&bold=true`;
+            let isSystemFb = approverName === 'Sistem Auto';
+            
+            let aAva = isSystemFb ? sysAvaUrl : (data.approverPic ? fixDriveUrl(data.approverPic) : `https://ui-avatars.com/api/?name=${encodeURIComponent(approverName)}&background=007AFF&color=fff&bold=true`);
+            let extraStyleFb = isSystemFb ? 'background: linear-gradient(135deg, #5E5CE6 0%, #3B38A8 100%); box-shadow: 0 4px 15px rgba(94, 92, 230, 0.3); border:none; color:white;' : '';
+            let metaStyleFb = isSystemFb ? 'color: rgba(255,255,255,0.9); font-style: italic;' : '';
+
             html += `
             <div class="chat-row admin">
-               <img src="${aAva}" class="chat-ava" onclick="openImageViewer('${aAva}')" style="cursor:zoom-in;" title="Zoom Profil">
-               <div class="chat-bubble admin">
-                   <span class="chat-meta">${approverName} (Admin)</span>
+               <img src="${aAva}" class="chat-ava" onclick="openImageViewer('${aAva}')" style="cursor:zoom-in; ${isSystemFb ? 'border: 2px solid #5E5CE6; box-shadow: 0 4px 12px rgba(94, 92, 230, 0.25); background: white;' : ''}" title="Zoom Profil">
+               <div class="chat-bubble admin" style="${extraStyleFb}">
+                   <span class="chat-meta" style="${metaStyleFb}">${isSystemFb ? '⚡ ' : ''}${approverName} ${isSystemFb ? '(Sistem)' : '(Admin)'}</span>
                    ${data.adminNote}
                </div>
             </div>`;
@@ -2716,7 +2776,7 @@ async function revealPhoneNumber(id, originalPhone, docNum) {
     let btnEl = document.getElementById('phone-btn-' + id);
     if (phoneEl) {
         phoneEl.innerText = originalPhone;
-        phoneEl.style.color = 'var(--danger)'; 
+        phoneEl.style.color = 'var(--text-main)'; // Warna diubah jadi hitam standar
     }
     if (btnEl) btnEl.style.display = 'none';
 
@@ -3121,7 +3181,8 @@ function showHistoryDetail(id) {
   function clearCanvas() { if(ctx) ctx.clearRect(0,0, canvas.width, canvas.height); }
 
  function getIP() {
-    document.getElementById('login-form').style.display = 'none'; document.getElementById('session-loader').style.display = 'block';
+    document.getElementById('login-form').style.display = 'none'; 
+    document.getElementById('session-loader').style.display = 'block';
     
     // Tarik IP secara background
     fetch('https://api.ipify.org?format=json')
@@ -3133,6 +3194,7 @@ function showHistoryDetail(id) {
     if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(
             (pos) => {
+                // 🌟 PERBAIKAN: Format link Google Maps yang benar
                 clientMapLinkRaw = `https://www.google.com/maps?q=${pos.coords.latitude},${pos.coords.longitude}`;
             },
             (err) => { clientMapLinkRaw = "GPS Akses Ditolak/Off"; },
@@ -3312,25 +3374,84 @@ function switchView(viewId) {
     document.getElementById('log-menu-card').style.display = isAdmin ? 'flex' : 'none';
   }
 
+  let lockoutTimer = null; // Variabel penyimpan interval timer
+
   async function doLogin() {
     const user = document.getElementById('username').value.trim(); 
     const pass = document.getElementById('password').value.trim();
 
     if(!user || !pass) return showToast('Isi Username & Password', 'error'); 
     
-    document.getElementById('login-text').style.display = 'none'; document.getElementById('login-loader').style.display = 'block';
+    // Matikan timer lama (jika ada) saat user mencoba menekan tombol login lagi
+    if (lockoutTimer) clearInterval(lockoutTimer);
+
+    const btnText = document.getElementById('login-text');
+    const btnLoader = document.getElementById('login-loader');
+    const loginBtn = btnText.parentElement;
+
+    btnText.style.display = 'none'; 
+    btnLoader.style.display = 'block';
     
     let res = await callAPI("processLogin", { username: user, password: pass, ipAddress: clientIP });
-    document.getElementById('login-text').style.display = 'block'; document.getElementById('login-loader').style.display = 'none';
+    
+    btnText.style.display = 'block'; 
+    btnLoader.style.display = 'none';
     
     if(res && res.success) {
       currentUser = res.data;
       sessionToken = res.token;
       setupProfile();
       localStorage.setItem('repack_session_v3', JSON.stringify({ user: currentUser, token: sessionToken }));
+      
+      // Jika berhasil login, normalkan kembali tombolnya
+      loginBtn.disabled = false;
+      loginBtn.style.background = 'var(--primary)';
+      btnText.innerText = 'Masuk';
+      
       loadDashboard(); syncData();
       showToast('Login Berhasil!', 'success');
     } else { 
+      // 🌟 SISTEM PENDETEKSI & COUNTDOWN SUSPEND 🌟
+      if (res && res.message && res.message.includes('terkunci sementara')) {
+          let match = res.message.match(/dalam (\d+) menit/);
+          if (match) {
+              let minutesLeft = parseInt(match[1]);
+              let targetTime = new Date().getTime() + (minutesLeft * 60000);
+              
+              showToast(`🔒 Akses ditahan. Coba lagi dalam ${minutesLeft} menit.`, 'error');
+              if ("vibrate" in navigator) navigator.vibrate([200, 100, 200, 100, 200]); // Getar peringatan panjang
+
+              loginBtn.disabled = true;
+              loginBtn.style.background = 'var(--danger)'; // Ubah tombol jadi merah
+              
+              // Mulai hitungan mundur per detik
+              lockoutTimer = setInterval(() => {
+                  let now = new Date().getTime();
+                  let diffMs = targetTime - now;
+
+                  if (diffMs <= 0) {
+                      // Waktu hukuman habis! Buka tombolnya
+                      clearInterval(lockoutTimer);
+                      loginBtn.disabled = false;
+                      loginBtn.style.background = 'var(--primary)';
+                      btnText.innerText = 'Masuk';
+                      showToast('🔓 Waktu tunggu selesai. Silakan coba login lagi.', 'success');
+                  } else {
+                      // Konversi sisa ms ke menit:detik
+                      let m = Math.floor(diffMs / 60000);
+                      let s = Math.floor((diffMs % 60000) / 1000);
+                      let mStr = m < 10 ? '0' + m : m;
+                      let sStr = s < 10 ? '0' + s : s;
+                      
+                      btnText.innerHTML = `🔒 Terkunci (${mStr}:${sStr})`;
+                  }
+              }, 1000);
+
+              return; // Hentikan fungsi di sini agar alert default di bawah tidak jalan
+          }
+      }
+
+      // Jika error biasa (Password salah 1x-5x), jalankan ini
       showToast(res ? res.message : 'Koneksi Gagal', 'error'); 
     }
   }
@@ -3377,65 +3498,74 @@ async function loadDashboard() {
   window.scrollTo(0,0);
 }
 
-  async function syncData() {
+ async function syncData() {
     let syncBtn = document.getElementById('btn-sync');
     if(syncBtn) syncBtn.classList.add('is-syncing');
     
-    if(draftQueue.length > 0) {
-        await processDrafts();
-    }
-
-    // 1. Sinkronisasi Data History
-    let resHist = await callAPI("getHistoryData", {cat: 'All', role: currentUser.role}, true);
-    if(resHist) { 
-        globHist = resHist; 
-        localforage.setItem('cache_hist', globHist); // Simpan ke Offline Cache
-    } else {
-        let cached = await localforage.getItem('cache_hist');
-        if(cached) globHist = cached; // Gunakan Offline Cache jika tidak ada sinyal
-    }
-    syncDataLocal(); 
-    
-    // 2. Sinkronisasi Daftar Pending Packing
-    let resPack = await callAPI("getPendingPacking", {}, true);
-    if(resPack) { 
-        pendingDocs = resPack; 
-        localforage.setItem('cache_pending', pendingDocs); 
-    } else {
-        let cached = await localforage.getItem('cache_pending');
-        if(cached) pendingDocs = cached;
-    }
-    
-    // 3. Sinkronisasi Daftar Expedisi
-    let resExp = await callAPI("getExpedisiList", {}, true);
-    if(resExp) {
-        globExp = resExp; 
-        localforage.setItem('cache_exp', globExp); 
-    } else {
-        let cached = await localforage.getItem('cache_exp');
-        if(cached) globExp = cached;
-    }
-
-// 🌟 TAMBAHAN: Tarik Log otomatis khusus Admin untuk notifikasi Badge
-    if (currentUser && (currentUser.role === 'Admin' || currentUser.role === 'Super Admin')) {
-        let resLogs = await callAPI("getLogsData", {}, true);
-        if (resLogs) {
-            globalLogs = resLogs;
-            localforage.setItem('cache_logs', resLogs);
-        } else {
-            let cachedL = await localforage.getItem('cache_logs');
-            if (cachedL) globalLogs = cachedL;
+    try {
+        if(draftQueue.length > 0) {
+            await processDrafts();
         }
-        updateMonitorBadge(); // Update angka badgenya!
+
+        // 1. Sinkronisasi Data History (Kebal Error)
+        let resHist = await callAPI("getHistoryData", {cat: 'All', role: currentUser.role}, true);
+        if(resHist && Array.isArray(resHist)) { 
+            globHist = resHist; 
+            localforage.setItem('cache_hist', globHist); 
+        } else {
+            let cached = await localforage.getItem('cache_hist');
+            if(cached) globHist = cached; 
+        }
+        syncDataLocal(); 
+        
+        // 2. Sinkronisasi Daftar Pending Packing
+        let resPack = await callAPI("getPendingPacking", {}, true);
+        if(resPack && Array.isArray(resPack)) { 
+            pendingDocs = resPack; 
+            localforage.setItem('cache_pending', pendingDocs); 
+        } else {
+            let cached = await localforage.getItem('cache_pending');
+            if(cached) pendingDocs = cached;
+        }
+        
+        // 3. Sinkronisasi Daftar Expedisi
+        let resExp = await callAPI("getExpedisiList", {}, true);
+        if(resExp && Array.isArray(resExp)) {
+            globExp = resExp; 
+            localforage.setItem('cache_exp', globExp); 
+        } else {
+            let cached = await localforage.getItem('cache_exp');
+            if(cached) globExp = cached;
+        }
+
+        // 🌟 TARIK DATA KHUSUS ADMIN SECARA BACKGROUND
+        if (currentUser && (currentUser.role === 'Admin' || currentUser.role === 'Super Admin')) {
+            let resLogs = await callAPI("getLogsData", {}, true);
+            if (resLogs && Array.isArray(resLogs)) { globalLogs = resLogs; localforage.setItem('cache_logs', resLogs); }
+
+            let resAppr = await callAPI("getApprovalList", {}, true);
+            if (resAppr && Array.isArray(resAppr)) { globalApprovalData = resAppr; localforage.setItem('cache_approval', resAppr); }
+
+            updateAdminBadges(); 
+        }
+        showToast('Data Aplikasi Siap!', 'success');
+        
+    } catch(err) {
+        console.error("Sinkronisasi bermasalah:", err);
+    } finally {
+        // 🌟 KUNCI PENTING: Apapun yang terjadi, putaran spinner HARUS berhenti
+        if(syncBtn) syncBtn.classList.remove('is-syncing');
     }
-    
-    if(syncBtn) syncBtn.classList.remove('is-syncing');
-    showToast('Data Aplikasi Siap!', 'success');
   }
 
-  function openApprovalMenu() {
+  async function openApprovalMenu() {
     switchView('approval-view');
-    filterApproval('Pending Approval');
+    let syncBtn = document.getElementById('btn-sync-appr');
+    if (syncBtn) syncBtn.classList.add('is-syncing');
+
+    await filterApproval('Pending Approval');
+    
+    if (syncBtn) syncBtn.classList.remove('is-syncing');
   }
 
  async function filterApproval(statusStr) {
@@ -3474,7 +3604,15 @@ function renderApprovals(data) {
   if (chkAll) chkAll.checked = false;
   // ------------------------------------
   
-  let filtered = globalApprovalData.filter(x => x.status === activeApprTab);
+// ------------------------------------
+  
+  let filtered = globalApprovalData.filter(x => {
+      // Jika admin membuka tab 'Approved', tampilkan yang 'Approved' biasa ATAU yang 'Auto-Approved'
+      if (activeApprTab === 'Approved') {
+          return x.status === 'Approved' || x.status === 'Auto-Approved';
+      }
+      return x.status === activeApprTab;
+  });
 
   if(filtered.length === 0) { 
       list.innerHTML = '<div style="text-align:center; padding: 40px 0; color: var(--text-muted);"><div style="font-size:48px; margin-bottom:12px;">📭</div><p style="font-weight:600;">Tidak ada data pengajuan.</p></div>'; 
@@ -3486,7 +3624,8 @@ function renderApprovals(data) {
 
   let htmlStr = '';
   filtered.forEach(function(item) {
-     let badgeColor = item.status === 'Pending Approval' ? 'var(--warning)' : (item.status === 'Approved' ? 'var(--success)' : 'var(--danger)');
+     // Berikan warna hijau untuk 'Approved' maupun 'Auto-Approved'
+     let badgeColor = item.status === 'Pending Approval' ? 'var(--warning)' : (item.status === 'Approved' || item.status === 'Auto-Approved' ? 'var(--success)' : 'var(--danger)');
      let actionButtons = '';
      let checkboxHtml = '';
      
@@ -3951,6 +4090,9 @@ async function openReceiptMenu() {
     switchView('history-view'); 
     document.getElementById('history-list').innerHTML = '<div class="loader dark" style="display:block; margin-top:40px;"></div>';
     
+    let syncBtn = document.getElementById('btn-sync-hist');
+    if (syncBtn) syncBtn.classList.add('is-syncing');
+
     let data = await callAPI("getHistoryData", { cat: 'All', role: currentUser.role }, true);
     if(data) { 
         globHist = data; 
@@ -3960,6 +4102,8 @@ async function openReceiptMenu() {
         if(cached) globHist = cached;
     }
     renderHistory(); 
+
+    if (syncBtn) syncBtn.classList.remove('is-syncing');
   }
 function renderHistory() {
     let cat = document.getElementById('hist-cat').value; 
@@ -4067,6 +4211,9 @@ let htmlStr = '';
     switchView('log-view');
     document.getElementById('log-list').innerHTML = '<div class="loader dark" style="display:block; margin-top:40px;"></div>';
     
+    let syncBtn = document.getElementById('btn-sync-log');
+    if (syncBtn) syncBtn.classList.add('is-syncing');
+
     let res = await callAPI("getLogsData", {}, true);
     if(res) { 
         globalLogs = res; 
@@ -4076,6 +4223,8 @@ let htmlStr = '';
         if(cached) globalLogs = cached;
     }
     renderLogs(); 
+
+    if (syncBtn) syncBtn.classList.remove('is-syncing');
   }
 
 function renderLogs() {
@@ -4416,8 +4565,13 @@ async function executeReqEdit(payload) {
     let updatedHistory = appendChatHistory(payload.reqHistory, 'staff', currentUser.name || currentUser.username, currentUser.profilePic, chatText);
 
     let res = await callAPI("requestEditData", { id: payload.id, type: payload.type, data: newData, ip: clientIP, reason: reason, reqHistory: updatedHistory });
-    if(res) { showToast(res); closeActionModal(); openHistoryMenu(); }
-    else { btn.innerText = oldText; btn.disabled = false; }
+   
+   if(res && res.success === false) { 
+       showToast(res.message, 'error'); 
+       btn.innerText = oldText; btn.disabled = false; 
+   } else { 
+       showToast(res); closeActionModal(); openHistoryMenu(); 
+   }
 }
 
  async function executeReqDelete(payload) { 
@@ -4693,19 +4847,52 @@ window.addEventListener('popstate', function(event) {
 // FITUR MONITOR STAFF AKTIF POP-UP (ADMIN)
 // ==========================================
 let globalStaffMap = {}; // Penyimpan data sementara untuk pop-up detail
+let monitorTimerInterval = null; // Penyimpan interval hitungan mundur admin
+
+// 🌟 FUNGSI PENGGERAK HITUNGAN MUNDUR (REAL-TIME)
+function startMonitorCountdowns() {
+    if(monitorTimerInterval) clearInterval(monitorTimerInterval);
+    monitorTimerInterval = setInterval(() => {
+        let now = new Date().getTime();
+        let els = document.querySelectorAll('.live-suspend-timer');
+        els.forEach(el => {
+            let target = parseInt(el.getAttribute('data-target'));
+            let diffMs = target - now;
+            if(diffMs <= 0) {
+                el.innerText = '00:00';
+                el.classList.remove('live-suspend-timer');
+                el.style.color = 'var(--success)';
+                el.innerText = 'Telah Dibuka';
+            } else {
+                let m = Math.floor(diffMs / 60000);
+                let s = Math.floor((diffMs % 60000) / 1000);
+                let mStr = m < 10 ? '0' + m : m;
+                let sStr = s < 10 ? '0' + s : s;
+                el.innerText = `${mStr}:${sStr}`;
+            }
+        });
+    }, 1000);
+}
 
 async function openStaffMonitorModal() {
     document.getElementById('staff-monitor-modal').classList.add('active');
     document.getElementById('staff-monitor-container').innerHTML = '<div class="loader dark" style="display:block; margin: 40px auto;"></div>';
     
+    let syncBtn = document.getElementById('btn-sync-mon');
+    // 🌟 PERBAIKAN: Gunakan class is-syncing agar kotaknya diam, dan hanya icon SVG-nya yang memutar
+    if (syncBtn) syncBtn.classList.add('is-syncing');
+
     try {
-        let res = await callAPI("getLogsData");
+        let res = await callAPI("getLogsData", {}, true); 
         if(res && Array.isArray(res)) { 
             globalLogs = res; 
         }
         renderStaffMonitorModal();
     } catch (e) {
         document.getElementById('staff-monitor-container').innerHTML = '<div style="text-align:center; padding: 20px; color: var(--danger); font-weight:600;">Gagal memuat koneksi data.</div>';
+    } finally {
+        // 🌟 PERBAIKAN: Matikan class is-syncing saat selesai
+        if (syncBtn) syncBtn.classList.remove('is-syncing');
     }
 }
 
@@ -4755,18 +4942,50 @@ async function renderStaffMonitorModal() {
 
         let html = '';
         let now = new Date();
-
-        // 🌟 TUNGGU DATA DARI MEMORI INDEXEDDB
         let seenAlerts = await localforage.getItem('repack_seen_alerts') || [];
 
-        let knownStaff = staffArray.filter(s => s.name && s.name.trim() !== '');
-        let unknownStaff = staffArray.filter(s => !s.name || s.name.trim() === '');
+        // URUTKAN BERDASARKAN AKTIVITAS TERBARU
+        let knownStaff = staffArray.filter(s => s.name && s.name.trim() !== '').sort((a, b) => b.lastActionTime - a.lastActionTime);
+        let unknownStaff = staffArray.filter(s => !s.name || s.name.trim() === '').sort((a, b) => b.lastActionTime - a.lastActionTime);
 
         const buildCardHtml = (staff, isUnknown) => {
             let diffMinutes = Math.round((now - staff.lastActionTime) / 60000); 
             let statusBadge = ''; let dotColor = '';
             
-            if (diffMinutes < 30) {
+            // 🌟 DETEKSI BLOKIR (SUSPEND) UNTUK LIST
+            let isSuspended = false;
+            let unlockTime = 0;
+            
+            // 1. Cari riwayat kapan akun ini terakhir dikunci
+            let lockLog = staff.history.find(h => h.action === 'Sistem Keamanan' && h.details.includes('Akun dikunci'));
+            
+            if (lockLog) {
+                let lockTimeTs = new Date(lockLog.ts).getTime();
+                
+                // 2. Cek apakah ada Admin yang melakukan 'Bypass/Buka Blokir' SETELAH akun dikunci
+                let isUnlockedByAdmin = globalLogs.some(log => 
+                    log.action === 'Buka Blokir Akun' && 
+                    log.details.includes(staff.username) && 
+                    new Date(log.ts).getTime() > lockTimeTs
+                );
+
+                // 3. Jika belum di-bypass, jalankan hitungan mundur
+                if (!isUnlockedByAdmin) {
+                    let match = lockLog.details.match(/dikunci (\d+) menit/);
+                    if (match) {
+                        let lockMinutes = parseInt(match[1]);
+                        unlockTime = lockTimeTs + (lockMinutes * 60000);
+                        if (unlockTime > now.getTime()) {
+                            isSuspended = true;
+                        }
+                    }
+                }
+            }
+
+            if (isSuspended) {
+                statusBadge = `<span style="background:rgba(255,59,48,0.15); color:var(--danger); padding:6px 10px; border-radius:10px; font-size:10px; font-weight:800; text-transform:uppercase; border: 1px dashed rgba(255,59,48,0.3);">🚨 BLOKIR: <span class="live-suspend-timer" data-target="${unlockTime}">00:00</span></span>`;
+                dotColor = 'var(--danger)';
+            } else if (diffMinutes < 30) {
                 statusBadge = '<span style="background:rgba(52,199,89,0.15); color:var(--success); padding:6px 10px; border-radius:10px; font-size:10px; font-weight:800; text-transform:uppercase;">🟢 Aktif</span>';
                 dotColor = 'var(--success)';
             } else if (diffMinutes < 720) { 
@@ -4783,13 +5002,11 @@ async function renderStaffMonitorModal() {
             let displayName = isUnknown ? `<span style="color:var(--danger);">⚠️ Unregistered</span>` : staff.name;
             let subName = isUnknown ? `Username Log: <b>${staff.username}</b>` : `@${staff.username}`;
 
-            // 🌟 LOGIKA TAMPILAN BADGE (BIRU UNTUK FOTO, MERAH UNTUK PELANGGARAN)
             let unseenLogs = staff.history.filter(h => isLogSuspicious(h) && !seenAlerts.includes(h.ts));
             let hasUnseenAlert = unseenLogs.length > 0;
             let isProfileUpdateOnly = hasUnseenAlert && unseenLogs.every(h => String(h.action).toUpperCase().includes('PROFIL'));
 
-            let alertGlow = '';
-            let alertBadgeUI = '';
+            let alertGlow = ''; let alertBadgeUI = '';
 
             if (hasUnseenAlert) {
                 if (isProfileUpdateOnly) {
@@ -4819,7 +5036,7 @@ async function renderStaffMonitorModal() {
                 </div>
             </div>`;
         };
-      
+        
         if (knownStaff.length > 0) {
             html += `<div style="font-size: 13px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 12px; margin-top: 8px; letter-spacing: 0.5px;">👥 Tim Operasional</div>`;
             knownStaff.forEach(staff => { html += buildCardHtml(staff, false); });
@@ -4831,17 +5048,17 @@ async function renderStaffMonitorModal() {
         }
 
         container.innerHTML = html;
+        startMonitorCountdowns(); // Panggil fungsi hitung mundur
 
     } catch (error) {
         document.getElementById('staff-monitor-container').innerHTML = '<div style="text-align:center; padding: 40px; color: var(--danger); font-weight:600;">Terjadi kendala saat membaca data Log.</div>';
     }
 }
-
+  
 async function showStaffDetailModal(username) {
     let staff = globalStaffMap[username];
     if(!staff) return;
 
-    // 🌟 LOGIKA TANDAI SEBAGAI DIBACA MENGGUNAKAN LOCALFORAGE
     let seenAlerts = await localforage.getItem('repack_seen_alerts') || [];
     let hasNewSeen = false;
 
@@ -4854,95 +5071,85 @@ async function showStaffDetailModal(username) {
 
     if (hasNewSeen) {
         await localforage.setItem('repack_seen_alerts', seenAlerts);
-        updateMonitorBadge();      // 📉 Kurangi angka di Dashboard Utama
-        renderStaffMonitorModal(); // ❌ Hilangkan kotak merah/glow di daftar staf yang berjalan di background
+        updateAdminBadges();        
+        renderStaffMonitorModal(); 
     }
 
     let isUnknown = !staff.name || staff.name.trim() === '';
     let safeStaffPic = staff.pic ? fixDriveUrl(staff.pic) : 'https://ui-avatars.com/api/?name=' + encodeURIComponent(isUnknown ? '?' : staff.name) + '&background=007AFF&color=fff&bold=true';
     
-    // --- 🌟 UPDATE: RENDER LIST IP ADDRESS JADI KOTAK-KOTAK RAPI ---
+    // 🌟 CEK STATUS SUSPEND (LIVE COUNTDOWN)
+    let isSuspended = false;
+    let unlockTime = 0;
+    let now = new Date();
+    
+    let lockLog = staff.history.find(h => h.action === 'Sistem Keamanan' && h.details.includes('Akun dikunci'));
+    
+    if (lockLog) {
+        let lockTimeTs = new Date(lockLog.ts).getTime();
+        let isUnlockedByAdmin = globalLogs.some(log => 
+            log.action === 'Buka Blokir Akun' && 
+            log.details.includes(staff.username) && 
+            new Date(log.ts).getTime() > lockTimeTs
+        );
+
+        if (!isUnlockedByAdmin) {
+            let match = lockLog.details.match(/dikunci (\d+) menit/);
+            if (match) {
+                let lockMinutes = parseInt(match[1]);
+                unlockTime = lockTimeTs + (lockMinutes * 60000);
+                if (unlockTime > now.getTime()) {
+                    isSuspended = true;
+                }
+            }
+        }
+    }
+
     let ipListHtml = Array.from(staff.ips).map(rawIp => {
         let extractedIp = rawIp || '-';
         let mapLink = '';
-
-        // Pecah format "IP | LinkMaps"
         if (rawIp && rawIp.includes(' | ')) {
-            let parts = rawIp.split(' | ');
-            extractedIp = parts[0];
-            mapLink = parts[1];
+            let parts = rawIp.split(' | '); extractedIp = parts[0]; mapLink = parts[1];
         }
 
-        let ipWidget = '';
-        if (extractedIp !== '-' && !extractedIp.includes('http')) {
-            ipWidget = `
-                <span style="font-family: monospace; font-size: 13px; color: var(--text-main); font-weight: 800; margin-right: 8px; letter-spacing: 0.5px;">${extractedIp}</span>
-                <a href="https://whatismyipaddress.com/ip/${extractedIp}" target="_blank" style="text-decoration:none; background:rgba(0,122,255,0.1); color:var(--primary); padding:4px 8px; border-radius:8px; font-size:10px; font-weight:800; border:1px solid rgba(0,122,255,0.2); transition:0.2s; display:inline-flex; align-items:center; gap:4px;">🌐 Lacak</a>
-            `;
-        } else {
-            ipWidget = `<span style="font-family: monospace; font-size: 13px; color: var(--text-main); font-weight: 800;">${extractedIp}</span>`;
-        }
+        let ipWidget = extractedIp !== '-' && !extractedIp.includes('http') 
+            ? `<span style="font-family: monospace; font-size: 13px; color: var(--text-main); font-weight: 800; margin-right: 8px;">${extractedIp}</span><a href="https://whatismyipaddress.com/ip/${extractedIp}" target="_blank" style="text-decoration:none; background:rgba(0,122,255,0.1); color:var(--primary); padding:4px 8px; border-radius:8px; font-size:10px; font-weight:800; border:1px solid rgba(0,122,255,0.2);">🌐 Lacak</a>`
+            : `<span style="font-family: monospace; font-size: 13px; color: var(--text-main); font-weight: 800;">${extractedIp}</span>`;
 
-        let mapBadgeHtml = '';
-        if (mapLink && mapLink.startsWith('http')) {
-            mapBadgeHtml = `<a href="${mapLink}" target="_blank" style="text-decoration:none; background:rgba(52,199,89,0.1); color:var(--success); padding:4px 8px; border-radius:8px; font-size:10px; font-weight:800; border:1px solid rgba(52,199,89,0.2); transition:0.2s; display:inline-flex; align-items:center; gap:4px;">📍 Maps</a>`;
-        } else if (mapLink.includes('Off') || mapLink.includes('Ditolak')) {
-            mapBadgeHtml = `<span style="background:rgba(255,59,48,0.05); color:var(--danger); padding:4px 8px; border-radius:8px; font-size:10px; font-weight:800; border:1px dashed rgba(255,59,48,0.2); display:inline-flex; align-items:center; gap:4px;">🚫 GPS Off</span>`;
-        }
+        let mapBadgeHtml = mapLink && mapLink.startsWith('http') 
+            ? `<a href="${mapLink}" target="_blank" style="text-decoration:none; background:rgba(52,199,89,0.1); color:var(--success); padding:4px 8px; border-radius:8px; font-size:10px; font-weight:800; border:1px solid rgba(52,199,89,0.2);">📍 Maps</a>`
+            : (mapLink.includes('Off') || mapLink.includes('Ditolak') ? `<span style="background:rgba(255,59,48,0.05); color:var(--danger); padding:4px 8px; border-radius:8px; font-size:10px; font-weight:800; border:1px dashed rgba(255,59,48,0.2);">🚫 GPS Off</span>` : '');
 
-        return `
-        <div style="display:flex; justify-content:space-between; align-items:center; background: white; padding: 10px 14px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 2px 8px rgba(0,0,0,0.02); width: 100%;">
-            <div style="display:flex; align-items:center;">${ipWidget}</div>
-            <div>${mapBadgeHtml}</div>
-        </div>`;
+        return `<div style="display:flex; justify-content:space-between; align-items:center; background: white; padding: 10px 14px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 2px 8px rgba(0,0,0,0.02); width: 100%;">
+                    <div style="display:flex; align-items:center;">${ipWidget}</div><div>${mapBadgeHtml}</div>
+                </div>`;
     }).join('');
-    // ---------------------------------------------------------------
 
     let lastLoginLog = staff.history.find(h => String(h.action).toUpperCase().includes('LOGIN'));
-    let lastLoginText = lastLoginLog 
-        ? new Date(lastLoginLog.ts).toLocaleString('id-ID', {day:'numeric', month:'short', hour:'2-digit', minute:'2-digit'}) + ' WIB' 
-        : 'Belum ada catatan';
+    let lastLoginText = lastLoginLog ? new Date(lastLoginLog.ts).toLocaleString('id-ID', {day:'numeric', month:'short', hour:'2-digit', minute:'2-digit'}) + ' WIB' : 'Belum ada catatan';
 
     let historyHtml = '';
     staff.history.slice(0, 15).forEach(h => {
         let hTime = new Date(h.ts).toLocaleString('id-ID', {day:'numeric', month:'short', hour:'2-digit', minute:'2-digit'});
-        let statusColor = String(h.status).toUpperCase().includes('BERHASIL') ? 'var(--success)' : (String(h.status).toUpperCase().includes('GAGAL') ? 'var(--danger)' : 'var(--warning)');
+        let statusColor = String(h.status).toUpperCase().includes('BERHASIL') || String(h.status).toUpperCase().includes('APPROVED') ? 'var(--success)' : (String(h.status).toUpperCase().includes('GAGAL') ? 'var(--danger)' : 'var(--warning)');
         
         let alertHighlight = '';
         if (isLogSuspicious(h)) {
-            if (String(h.action).toUpperCase().includes('PROFIL')) {
+            if(String(h.action).toUpperCase().includes('PROFIL') || String(h.action).toUpperCase().includes('PASSWORD')) {
                 alertHighlight = `border-left: 4px solid var(--primary); background: rgba(0,122,255,0.05); padding-left: 12px; border-radius: 4px;`;
+            } else if(String(h.status).toUpperCase().includes('AUTO-APPROVE')) {
+                alertHighlight = `border-left: 4px solid var(--success); background: rgba(52,199,89,0.05); padding-left: 12px; border-radius: 4px;`;
             } else {
                 alertHighlight = `border-left: 4px solid var(--danger); background: rgba(255,59,48,0.05); padding-left: 12px; border-radius: 4px;`;
             }
         }
 
-        // IP Extract Khusus History Text
-        let rawIp = h.ip || '-';
-        let extractedIp = rawIp;
-        let mapLink = '';
-        if (rawIp.includes(' | ')) {
-            let parts = rawIp.split(' | ');
-            extractedIp = parts[0];
-            mapLink = parts[1];
-        }
+        let rawIp = h.ip || '-'; let extractedIp = rawIp; let mapLink = '';
+        if (rawIp.includes(' | ')) { let parts = rawIp.split(' | '); extractedIp = parts[0]; mapLink = parts[1]; }
 
-        let histIpWidget = '';
-        if (extractedIp && extractedIp !== '-' && !extractedIp.includes('http')) {
-            histIpWidget = `<span style="font-family: monospace; font-size: 11px; color: var(--text-main); font-weight: 800; margin-right: 6px;">${extractedIp}</span>
-                            <a href="https://whatismyipaddress.com/ip/${extractedIp}" target="_blank" style="text-decoration:none; background:rgba(0,122,255,0.1); color:var(--primary); padding:4px 8px; border-radius:8px; font-size:10px; font-weight:800; border:1px solid rgba(0,122,255,0.2); transition:0.2s; display:inline-flex; align-items:center; gap:4px;">🌐 Lacak</a>`;
-        }
-        let histMapBadgeHtml = '';
-        if (mapLink && mapLink.startsWith('http')) {
-            histMapBadgeHtml = `<a href="${mapLink}" target="_blank" style="text-decoration:none; background:rgba(52,199,89,0.1); color:var(--success); padding:4px 8px; border-radius:8px; font-size:10px; font-weight:800; border:1px solid rgba(52,199,89,0.2); transition:0.2s; display:inline-flex; align-items:center; gap:4px; margin-left: 6px;">📍 Maps</a>`;
-        } else if (mapLink.includes('Off') || mapLink.includes('Ditolak')) {
-            histMapBadgeHtml = `<span style="background:rgba(255,59,48,0.05); color:var(--danger); padding:4px 8px; border-radius:8px; font-size:10px; font-weight:800; border:1px dashed rgba(255,59,48,0.2); display:inline-flex; align-items:center; gap:4px; margin-left: 6px;">🚫 GPS Off</span>`;
-        }
-
-        let locationWidgets = '';
-        if (histIpWidget || histMapBadgeHtml) {
-            locationWidgets = `<div style="display:flex; align-items:center; flex-wrap:wrap; margin-top:8px; background: rgba(0,0,0,0.02); padding: 8px 10px; border-radius: 10px; border: 1px dashed rgba(0,0,0,0.06);">${histIpWidget} ${histMapBadgeHtml}</div>`;
-        }
+        let histIpWidget = extractedIp && extractedIp !== '-' && !extractedIp.includes('http') ? `<span style="font-family: monospace; font-size: 11px; color: var(--text-main); font-weight: 800; margin-right: 6px;">${extractedIp}</span>` : '';
+        let histMapBadgeHtml = (mapLink && mapLink.startsWith('http')) ? `<a href="${mapLink}" target="_blank" style="text-decoration:none; background:rgba(52,199,89,0.1); color:var(--success); padding:2px 6px; border-radius:6px; font-size:9px; font-weight:800; border:1px solid rgba(52,199,89,0.2);">📍 Maps</a>` : '';
+        let locationWidgets = (histIpWidget || histMapBadgeHtml) ? `<div style="display:flex; align-items:center; flex-wrap:wrap; margin-top:8px; background: rgba(0,0,0,0.02); padding: 8px 10px; border-radius: 10px; border: 1px dashed rgba(0,0,0,0.06);">${histIpWidget} ${histMapBadgeHtml}</div>` : '';
 
         historyHtml += `
             <div style="display: flex; gap: 14px; border-bottom: 1px solid rgba(0,0,0,0.04); padding: 16px 0; ${alertHighlight}">
@@ -4950,25 +5157,38 @@ async function showStaffDetailModal(username) {
                 <div style="flex:1;">
                     <div style="font-size: 14px; font-weight: 800; color: var(--text-main); margin-bottom: 4px;">${h.action}</div>
                     <div style="font-size: 11px; color: ${statusColor}; font-weight: 800; padding: 4px 8px; background: rgba(0,0,0,0.03); border-radius: 6px; display: inline-block; text-transform: uppercase;">${h.status}</div>
-                    
                     ${locationWidgets}
-
                     ${h.details ? `<div style="font-size: 11.5px; color: var(--text-main); margin-top:8px; background: rgba(0,0,0,0.02); padding: 10px; border-radius: 10px; border: 1px dashed rgba(0,0,0,0.06); line-height: 1.4;">${h.details}</div>` : ''}
                 </div>
             </div>
         `;
     });
 
-    let mainTitle = isUnknown ? `<span style="color:var(--danger);">⚠️ Unregistered User</span>` : staff.name;
+    // 🌟 BANNER SUSPEND DETAIL (LIVE COUNTDOWN)
+    let suspendBanner = isSuspended ? `
+        <div style="background: rgba(255, 59, 48, 0.1); border: 2px solid var(--danger); border-radius: 16px; padding: 16px; margin-bottom: 24px; text-align: center;">
+            <div style="font-size: 28px; margin-bottom: 8px;">🚨</div>
+            <div style="font-size: 15px; font-weight: 800; color: var(--danger); margin-bottom: 4px;">Akun Sedang Dibekukan!</div>
+            <div style="font-size: 12px; font-weight: 600; color: var(--text-main); margin-bottom: 16px;">
+                Sistem mendeteksi percobaan masuk paksa (Brute-force).<br>
+                <div style="margin-top:8px; display:inline-block; padding:6px 12px; background:white; border-radius:12px; border:1px solid rgba(255,59,48,0.2);">
+                    <span style="font-size:11px; color:var(--text-muted); font-weight:800; text-transform:uppercase;">Terbuka dalam</span><br>
+                    <span class="live-suspend-timer" data-target="${unlockTime}" style="color:var(--danger); font-weight:900; font-size:20px;">00:00</span>
+                </div>
+            </div>
+            <button onclick="showUnivModal('confirm-unblock', { targetUsername: '${staff.username}' })" style="width: 100%; padding: 14px; background: var(--danger); color: white; border: none; border-radius: 14px; font-weight: 800; font-size: 13px; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 15px rgba(255,59,48,0.4);">🔓 Bypass Blokir</button>
+        </div>` : '';
     
     let html = `
         <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px dashed rgba(0,0,0,0.08);">
             <img src="${safeStaffPic}" onclick="openImageViewer('${safeStaffPic}')" style="width: 76px; height: 76px; border-radius: 50%; object-fit: cover; border: 3px solid ${isUnknown ? 'var(--danger)' : 'var(--primary)'}; box-shadow: 0 8px 20px ${isUnknown ? 'rgba(255,59,48,0.2)' : 'rgba(0,122,255,0.2)'}; cursor:zoom-in;">
             <div>
-                <div style="font-size: 18px; font-weight: 800; color: var(--text-main); letter-spacing: -0.3px;">${mainTitle}</div>
+                <div style="font-size: 18px; font-weight: 800; color: var(--text-main); letter-spacing: -0.3px;">${isUnknown ? `<span style="color:var(--danger);">⚠️ Unregistered</span>` : staff.name}</div>
                 <div style="font-size: 13px; color: var(--text-muted); font-weight: 600; margin-top: 4px;">Username: @${staff.username}</div>
             </div>
         </div>
+
+        ${suspendBanner}
 
         <div style="background: rgba(0,122,255,0.05); border-radius: 20px; padding: 16px; margin-bottom: 24px; border: 1px solid rgba(0,122,255,0.1);">
             <div style="margin-bottom: 16px;">
@@ -4989,6 +5209,7 @@ async function showStaffDetailModal(username) {
 
     document.getElementById('staff-detail-container').innerHTML = html;
     document.getElementById('staff-detail-modal').classList.add('active');
+    startMonitorCountdowns(); // Panggil fungsi hitung mundur untuk modal
 }
 
   // Deteksi apakah log ini "Berbahaya / Butuh Notifikasi"
@@ -4999,33 +5220,53 @@ function isLogSuspicious(log) {
     return s.includes('WARNING') || s.includes('GAGAL') || s.includes('ERROR') || a.includes('MELIHAT NO. HP') || a.includes('PROFIL');
 }
 
-// Update angka merah pakai localforage
-async function updateMonitorBadge() {
-    if (!globalLogs || globalLogs.length === 0) return;
+// Mengupdate angka notifikasi (Badge) di menu Dashboard (Monitor & Approval)
+async function updateAdminBadges() {
+    if (!globalLogs || !currentUser || (currentUser.role !== 'Admin' && currentUser.role !== 'Super Admin')) return;
     
-    // Ambil data dari localforage (database offline kamu)
+    // 1. UPDATE BADGE MONITORING
     let seenAlerts = await localforage.getItem('repack_seen_alerts') || [];
     let unseenCount = 0;
-
     globalLogs.forEach(log => {
-        if (isLogSuspicious(log) && !seenAlerts.includes(log.ts)) {
-            unseenCount++;
-        }
+        if (isLogSuspicious(log) && !seenAlerts.includes(log.ts)) unseenCount++;
     });
 
-    let badge = document.getElementById('monitor-alert-badge');
-    if (badge) {
+    let monBadge = document.getElementById('monitor-alert-badge');
+    if (monBadge) {
         if (unseenCount > 0) {
-            badge.innerText = unseenCount > 99 ? '99+' : unseenCount;
-            badge.style.display = 'flex';
-            badge.style.animation = 'pulseUpload 1.5s infinite'; // Animasi kedip
+            monBadge.innerText = unseenCount > 99 ? '99+' : unseenCount;
+            monBadge.style.display = 'flex';
+            monBadge.style.animation = 'pulseUpload 1.5s infinite'; 
         } else {
-            badge.style.display = 'none';
-            badge.style.animation = 'none';
+            monBadge.style.display = 'none';
+            monBadge.style.animation = 'none';
+        }
+    }
+
+    // 2. UPDATE BADGE APPROVAL
+    if (globalApprovalData) {
+        let pendingCount = globalApprovalData.filter(x => x.status === 'Pending Approval').length;
+        let apprBadge = document.getElementById('appr-alert-badge');
+        if (apprBadge) {
+            if (pendingCount > 0) {
+                apprBadge.innerText = pendingCount > 99 ? '99+' : pendingCount;
+                apprBadge.style.display = 'flex';
+                apprBadge.style.animation = 'pulseUpload 1.5s infinite';
+            } else {
+                apprBadge.style.display = 'none';
+                apprBadge.style.animation = 'none';
+            }
         }
     }
 }
 
+// Deteksi aktivitas yang memicu alert
+function isLogSuspicious(log) {
+    let s = String(log.status).toUpperCase();
+    let a = String(log.action).toUpperCase();
+    // 🌟 Tambahan: AUTO-APPROVE, PROFIL, RESET PASSWORD
+    return s.includes('WARNING') || s.includes('GAGAL') || s.includes('ERROR') || a.includes('MELIHAT NO. HP') || a.includes('PROFIL') || s.includes('AUTO-APPROVE') || a.includes('PASSWORD');
+}
 
 
   async function autoSaveProfilePicture(base64Data) {
